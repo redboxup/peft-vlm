@@ -6,4 +6,13 @@ multirun/
 wandb/
 .ipynb_checkpoints/
 .DS_Store
+
+# model weights and cached datasets
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+*.h5
 .claude/settings.local.json

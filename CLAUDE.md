@@ -40,3 +40,9 @@ Registration happens at import time. `models/__init__.py` and `trainers/__init__
 - `models/__init__.py` and `trainers/__init__.py` import modules that don't exist (`manual_prompt`, `MoCoOp`, `DualCoOpPP`, `Ensemble_prompt1/2/3`, `vision_classifier`), and `eval.py` imports a missing `detectors` package. Importing these packages fails until the imports are pruned or the files restored. Several configs in `configs.py` have no matching model or trainer.
 - `allconfigs/dataset_configs.py` hardcodes machine-specific `/mnt/...` paths in `zeroshot_results_dir`.
 - `run.py`'s `verify_dataloaders` block references unrelated datasets (`irma`, `mura`, `boneage`) and the nonexistent `configs.trainer.sampler`. Don't enable it as is.
+
+## Hooks
+
+`.claude/settings.json` runs three project checks (`.claude/hooks/`): `py_compile` on edited Python, a registry consistency check on edits to `configs.py`/`models/`/`trainers/`, and a machine-specific-path check on edits under `allconfigs/`. A `git add`/`git commit` is blocked if it would stage weights or files over 10 MB.
+
+The registry check compares against `.claude/hooks/registry_baseline.json`, which records the drift listed above so only *new* drift blocks. After fixing (or deliberately adding) a registration, run `python3 .claude/hooks/check_registry.py --update-baseline` and commit the result.

@@ -1,0 +1,37 @@
+{
+  "no_model": [
+    "dualcoop++",
+    "ensemble_prompt1",
+    "ensemble_prompt2",
+    "ensemble_prompt3",
+    "manual_prompt",
+    "mocoop",
+    "vision_classifier"
+  ],
+  "no_trainer": [
+    "dualcoop++",
+    "ensemble_prompt1",
+    "ensemble_prompt2",
+    "ensemble_prompt3",
+    "manual_prompt",
+    "mocoop",
+    "vision_classifier"
+  ],
+  "no_config": [],
+  "missing_modules": [
+    "models/DualCoOpPP.py",
+    "models/Ensemble_prompt1.py",
+    "models/Ensemble_prompt2.py",
+    "models/Ensemble_prompt3.py",
+    "models/MoCoOp.py",
+    "models/manual_prompt.py",
+    "models/vision_classifier.py",
+    "trainers/DualCoOpPP.py",
+    "trainers/Ensemble_prompt1.py",
+    "trainers/Ensemble_prompt2.py",
+    "trainers/Ensemble_prompt3.py",
+    "trainers/MoCoOp.py",
+    "trainers/manual_prompt.py",
+    "trainers/vision_classifier.py"
+  ]
+}
